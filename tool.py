@@ -40,7 +40,7 @@ def get_every_novel_url(url):
         i = []
         #print(soup.select('span > a')) 这个可以用于搜索span下面的a标签
         for p in soup.find_all('span',id=re.compile("thread_")):
-            i.append('http://68.168.16.150/forum/'+p.contents[0]['href'])
+            i.append('http://174.127.195.166/forum/'+p.contents[0]['href'])
         return i
     except:
         print("获取当前页面失败")

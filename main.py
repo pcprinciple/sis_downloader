@@ -10,6 +10,8 @@ def main():
         if action_str==1:
             #TODO 填写页数
             root = r"%s"%input("请输入目标文件夹：")
+            if root[-1] != '\\':
+                root = root + '\\'
             tool.screen_downloader()
             slect = int(input("\n请输入数字："))
             if slect == 0:
@@ -54,7 +56,7 @@ def main():
                 print("输入错误")
 
         elif action_str==0:
-            print("欢迎再次使用[sis爬取小说系统] V 1.1")
+            print("欢迎再次使用[sis爬取小说系统] V 1.2")
             break
 if __name__ == "__main__":
     main()

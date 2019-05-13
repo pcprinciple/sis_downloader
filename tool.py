@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 def screen_show():
         """显示菜单"""
         print("*" * 50)
-        print("欢迎使用[sis爬取小说系统] V 1.0")
+        print("欢迎使用[sis爬取小说系统] V 1.2")
         print("")
         print("1.爬取小说")
         print("")
@@ -16,7 +16,7 @@ def screen_show():
 def screen_downloader():
     #选择后爬取的内容
     print("+" * 50)
-    print("欢迎使用[sis-另类区小说系统] V 1.0")
+    print("欢迎使用[sis-另类区小说系统] V 1.2")
     print("")
     print("1.gl小说")
     print("2.冰恋小说")
@@ -30,13 +30,13 @@ def screen_downloader():
 
 def get_every_novel_url(url):
     try:
-        kv={
+        kvs={
             'user-agent':'Chrome/10.0'
         }
-        r = requests.get(url,headers=kv)
+        r = requests.get(url,headers=kvs)
         r.status_code
         r.encoding = 'gb18030'
-        soup = BeautifulSoup(r.text,'html.parser')
+        soup = BeautifulSoup(r.text,'lxml')
         i = []
         #print(soup.select('span > a')) 这个可以用于搜索span下面的a标签
         for p in soup.find_all('span',id=re.compile("thread_")):
@@ -53,9 +53,9 @@ def download_txt(url,root):
         r = requests.get(url, headers=kv,timeout=10)
         r.status_code
         r.encoding = 'gb18030'
-        soup = BeautifulSoup(r.text, 'html.parser')
-        text_beat = soup.find_all('div', 't_msgfont noSelect')
-        text = BeautifulSoup(str(text_beat), 'html.parser')
+        soup = BeautifulSoup(r.text, 'lxml')
+        text_beat = soup.find_all('div', 't_msgfont')
+        text = BeautifulSoup(str(text_beat), 'lxml')
         print(soup.title.string)
         path = root + soup.title.string + '.txt'
         if not os.path.exists(root):

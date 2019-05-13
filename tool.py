@@ -38,7 +38,7 @@ def get_every_novel_url(url):
         r.encoding = 'gb18030'
         soup = BeautifulSoup(r.text,'lxml')
         i = []
-        #print(soup.select('span > a')) 这个可以用于搜索span下面的a标签
+        #print(soup.select('span > a'))  这个可以用于搜索span下面的a标签
         for p in soup.find_all('span',id=re.compile("thread_")):
             i.append('http://174.127.195.166/forum/'+p.contents[0]['href'])
         return i

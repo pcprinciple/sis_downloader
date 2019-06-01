@@ -5,11 +5,11 @@ def main():
 
         action_str = int(input("请选择希望执行的操作："))
 
-        print("您执行的操作是[%d]"%action_str)
+        print("您执行的操作是[%d]" % action_str)
 
-        if action_str==1:
+        if action_str == 1:
             #TODO 填写页数
-            root = r"%s"%input("请输入目标文件夹：")
+            root = r"%s" % input("请输入目标文件夹：")
             if root[-1] != '\\':
                 root = root + '\\'
             tool.screen_downloader()
@@ -55,7 +55,7 @@ def main():
             else:
                 print("输入错误")
 
-        elif action_str==0:
+        elif action_str == 0:
             print("欢迎再次使用[sis爬取小说系统] V 1.2")
             break
 if __name__ == "__main__":

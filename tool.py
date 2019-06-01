@@ -64,7 +64,6 @@ def download_txt(url,root):
             with open(path, 'w', encoding='utf-8') as f:
                 for each in text.div.text.replace('\xa0', ''):
                     f.write(each)
-                f.close()
             print("文件已保存")
         else :
             print('文件已存在')

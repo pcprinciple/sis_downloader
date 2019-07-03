@@ -5,3 +5,5 @@
 # 版本V1.1
   更改了服务器IP地址
   目标文件夹可以指定文件夹，若没有当前文件夹，将会创建
+# 下载地址
+  https://github.com/pcprinciple/sis_downloader/releases/
